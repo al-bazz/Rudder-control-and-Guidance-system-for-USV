@@ -1,0 +1,15 @@
+% Define model parameters
+T1 = 7;     % Roll time constant
+T2 = 50;    % Yaw time constant
+T3 = 50;    % Surge time constant
+T4 = 15;    % Sway time constant
+T5 = 1;     % Heave time constant
+K = 10;     % Ship speed
+
+% Define transfer function
+num = [K*T1*T5, K*T5];                    % Numerator coefficients
+den = [T1*T2*T3*T5, T2*T3*T5+T1*T3*T5, T3*T5+K*T3*T4, K*T4]; % Denominator coefficients
+sys = tf(num, den);                       % Transfer function object
+
+% Plot step response
+step(sys);

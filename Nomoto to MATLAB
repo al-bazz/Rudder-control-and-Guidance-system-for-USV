@@ -13,3 +13,19 @@ sys = tf(num, den);                       % Transfer function object
 
 % Plot step response
 step(sys);
+
+
+------------------------------------------------------------------------------------
+
+% Define model parameters
+K = 1;      % Gain
+T = 2;      % Time constant
+L = 0.5;    % Time delay
+
+% Define transfer function
+num = [K*T, K];    % Numerator coefficients
+den = [T*L, T, 1];  % Denominator coefficients
+sys = tf(num, den); % Transfer function object
+
+% Plot step response
+step(sys);
